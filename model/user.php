@@ -13,6 +13,20 @@ class User{
         $this->firstname = $firstname;
         $this->lastname = $lastname;
     }
+
+    public static function loginUser($conn,$user){
+        $upit = "select * from user where email='$user->email' and password= '$user->password'";
+
+        return $conn->query($upit); 
+    }
+
+    public static function registerUser($conn,$user){
+        $upit = "insert into user(username,email,password,firstname,lastname) values('$user->username','$user->email','$user->password','$user->firstname','$user->lastname')";
+
+        return $conn->query($upit); 
+    }
+
+
 }
 
 
