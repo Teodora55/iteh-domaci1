@@ -16,7 +16,6 @@ class User{
 
     public static function loginUser($conn,$user){
         $upit = "select * from user where email='$user->email' and password= '$user->password'";
-
         return $conn->query($upit); 
     }
 
@@ -26,6 +25,19 @@ class User{
         return $conn->query($upit); 
     }
 
+    public static function getUserByEmail($email,$conn){
+        $upit = "select * from user where email='$email'";
+
+
+        $myArray = array();
+        $result= $conn->query($upit);
+        if($result){
+            while($row = $result->fetch_array()){
+                $myArray[] = $row;
+            }
+        }
+        return  $myArray[0] ;
+    }
 
 }
 
