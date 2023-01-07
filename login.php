@@ -12,7 +12,7 @@
         if($status->num_rows > 0){
 
             $_SESSION['ulogovaniKorisnik'] = User::getUserByEmail($email,$conn);
-            header('Location: pocetna.php'); //ako je korisnik ulogovan mozemo da ga posaljemo na glavnu stranicu
+           header('Location: pocetna.php'); //ako je korisnik ulogovan mozemo da ga posaljemo na glavnu stranicu
         }else{
             echo "<script>alert('Pogresan email ili lozinka');</script>";
         }
@@ -34,7 +34,7 @@
     
             if($status){
                 echo "Registrovan";
-                $_SESSION['ulogovaniKozmeticar'] = User::getUserByEmail($email,$conn);
+                $_SESSION['ulogovaniKorisnik'] = User::getUserByEmail($email,$conn);
                 header('Location: pocetna.php'); //ako je korisnik ulogovan mozemo da ga posaljemo na glavnu stranicu
             }else{
                 echo "GRESKA";

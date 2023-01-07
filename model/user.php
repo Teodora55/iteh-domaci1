@@ -6,7 +6,7 @@ class User{
     private $firstname;
     private $lastname;
     
-    public function __construct($username=null,$email=null,$password=null,$firstname=null,$lastname=null){
+    public function __construct($username,$email,$password,$firstname,$lastname){
         $this->username = $username;
         $this->email = $email;
         $this->password = $password;
@@ -28,11 +28,10 @@ class User{
     public static function getUserByEmail($email,$conn){
         $upit = "select * from user where email='$email'";
 
-
         $myArray = array();
         $result= $conn->query($upit);
         if($result){
-            while($row = $result->fetch_array()){
+            while($row = $result->fetch_object()){
                 $myArray[] = $row;
             }
         }

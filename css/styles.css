@@ -21,7 +21,7 @@ body {
     justify-content: center;
     flex-direction: column;
     color: #fff;
-    padding: 2em
+    padding: 2em;
 }
 
 .heading {
@@ -74,7 +74,7 @@ body {
 }
 
 .loginBtn {
-    width: 102%;
+    width: 90%;
     height: 40px;
     border-radius: 10px;
     margin: 0.2em 0;
@@ -90,6 +90,12 @@ body {
     box-shadow: 0 0 10px #ff416d65
 }
 
+#orderBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .text {
     font-size: 0.8em;
     margin-top: 0.5em;
@@ -99,4 +105,14 @@ body {
 
 .text a {
     color: rgba(255, 255, 255, 0.911)
+}
+
+.table-container{
+    position:absolute;
+    width: 90%;
+}
+
+#newOrder{
+    position: relative;
+    top: 315px;
 }
