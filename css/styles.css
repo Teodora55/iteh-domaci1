@@ -6,7 +6,10 @@
 }
 
 body {
-    display: flex;
+    /* display: flex;
+    flex-direction: column; */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -85,6 +88,17 @@ body {
     transition: all 0.5s
 }
 
+.deleteBtn {
+    width: 70px;
+    border-radius: 5px;
+    margin: 0.2em 0;
+    transform: translate(-1%);
+    cursor: pointer;
+    color: #fff;
+    background:#FD688A;
+    transition: all 0.5s
+}
+
 .loginBtn:hover {
     transform: translate(-1%, 5%);
     box-shadow: 0 0 10px #ff416d65
@@ -107,12 +121,16 @@ body {
     color: rgba(255, 255, 255, 0.911)
 }
 
-.table-container{
+/* .table-container{
+    margin-top: 20px;
+    padding-top: 50px;
     position:absolute;
+    float: top;
     width: 90%;
-}
+} */
 
-#newOrder{
+/* #newOrder{
+    float: bottom;
     position: relative;
     top: 315px;
-}
+} */

@@ -23,6 +23,7 @@ include 'model/food_order.php';
           <th scope="col">Order</th>
           <th scope="col">Date</th>
           <th scope="col">Amount</th>
+          <th scope="col">Delete</th>
         </tr>
       </thead>
       <tbody>
@@ -31,23 +32,30 @@ include 'model/food_order.php';
         $narudzbine = Food_order::usersOrders($conn, $_SESSION['ulogovaniKorisnik']->username);
         while ($red = $narudzbine->fetch_array()): ?>
           <tr>
-            <th scope="row"><?php echo $red['id']; ?></th>
+            <th scope="row">
+              <?php echo $red['id']; ?>
+            </th>
             <td>
               <?php echo $red['order_name']; ?>
             </td>
-            <td><?php echo $red['order_date']; ?></td>
+            <td>
+              <?php echo $red['order_date']; ?>
+            </td>
             <td>
               <?php echo $red['amount']; ?>
             </td>
+            <td>
+              <button type="button" class='deleteBtn' data-value=<?php echo $red['id']; ?>>Delete</button>
+            </td>
           </tr>
-          <?php endwhile; ?>
+        <?php endwhile; ?>
     </table>
   </div>
   <br>
   <div class="container" id="newOrder">
     <form id="new-order">
       <div>
-          <input type="hidden" class="form-control" id="idkorisnika" name="idkorisnika" value=<?php echo $_SESSION['ulogovaniKorisnik']->username ?> readonly>
+        <input type="hidden" class="form-control" id="idkorisnika" name="idkorisnika" value=<?php echo $_SESSION['ulogovaniKorisnik']->username ?> readonly>
       </div>
       <div class="form-outline mb-4">
         <select class="form-control" id="selector" name="selector" aria-label="Default select example">

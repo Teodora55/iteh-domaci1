@@ -25,5 +25,10 @@ class Food_order{
         return $conn->query($upit); 
     }
 
+    public static function deleteOrder($conn,$id) {
+        $sql = "DELETE FROM food_order WHERE id = '$id'";
+        return $conn->query($sql);
+    }
+
 }
 ?>

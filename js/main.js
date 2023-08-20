@@ -30,4 +30,25 @@ $(document).ready(function () {
         alert('Morate popuniti formu!');
     }
   });
+
+  $('.deleteBtn').click(function(){
+   const id = $(this).data("value");
+   const row = $(this).closest("tr")[0];
+
+    req = $.ajax({
+      url: 'handler/delete-order.php',
+      type:'post',
+      data: {'id':id}
+  });
+
+  req.done(function(res){
+      if(res=="Success"){
+         row.remove();
+         alert('Obrisana narudzbina');
+      }else {
+        alert("Narudzbina nije obrisana");
+      }
+      console.log(res);
+  });
+  })
 });
