@@ -37,7 +37,7 @@
                 $_SESSION['ulogovaniKorisnik'] = User::getUserByEmail($email,$conn);
                 header('Location: pocetna.php'); //ako je korisnik ulogovan mozemo da ga posaljemo na glavnu stranicu
             }else{
-                echo "GRESKA";
+                echo '<script>alert("Greska")</script>';
             }
         }else{
             echo '<script>alert("Lozinke moraju da se poklapaju")</script>';

@@ -30,5 +30,17 @@ class Food_order{
         return $conn->query($sql);
     }
 
+    public static function changeAmount($conn,$id,$amount) {
+        $query = "UPDATE food_order SET amount = ? WHERE id = ?";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("di", $amount, $id);
+
+        if ($stmt->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
 ?>

@@ -51,4 +51,26 @@ $(document).ready(function () {
       console.log(res);
   });
   })
+
+$('.changeBtn').click(function(){
+  const id = $(this).data("value");
+  const amount = $('#change-' + id).val();
+
+   req = $.ajax({
+     url: 'handler/change-amount.php',
+     type:'post',
+     data: {'id':id, 'amount':amount}
+ });
+
+ req.done(function(res){
+     if(res=="Success"){
+        alert('Uspesno promenjena kolicina');
+location.reload(true);
+     }else {
+       alert("Kolicina nije promenjena");
+     }
+     console.log(res);
+ });
+ })
+
 });

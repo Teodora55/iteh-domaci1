@@ -24,6 +24,7 @@ include 'model/food_order.php';
           <th scope="col">Date</th>
           <th scope="col">Amount</th>
           <th scope="col">Delete</th>
+          <th scope="col">Change amount</th>
         </tr>
       </thead>
       <tbody>
@@ -46,6 +47,10 @@ include 'model/food_order.php';
             </td>
             <td>
               <button type="button" class='deleteBtn' data-value=<?php echo $red['id']; ?>>Delete</button>
+            </td>
+            <td>
+              <input type="number" id='change-<?php echo $red['id']; ?>' min="1" max="10"/>
+              <button type="button" class='changeBtn' data-value=<?php echo $red['id']; ?>>Change</button>
             </td>
           </tr>
         <?php endwhile; ?>
